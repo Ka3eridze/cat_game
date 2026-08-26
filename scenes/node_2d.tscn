@@ -1,0 +1,34 @@
+[gd_scene format=4 uid="uid://du76tcmf76xp"]
+
+[ext_resource type="Texture2D" uid="uid://c10ht1pmom2ue" path="res://assets/sprites/breadnbrocoli.png" id="1_4dvvg"]
+[ext_resource type="PackedScene" uid="uid://cvxvjkoga6gwb" path="res://scenes/character_body_2d.tscn" id="1_6e84v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnjyy"]
+texture = ExtResource("1_4dvvg")
+margins = Vector2i(4, 3)
+texture_region_size = Vector2i(15, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_4vge2"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rnjyy")
+
+[node name="game" type="Node2D" unique_id=560246864]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=892044326]
+tile_set = SubResource("TileSet_4vge2")
+format = 2
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap" unique_id=113703564]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAACAP7/AAAAAAAAAAADAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAGAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAJAP//AAAAAAAAAAAKAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_4vge2")
+
+[node name="cat" parent="." unique_id=1452909302 instance=ExtResource("1_6e84v")]
+position = Vector2(1, -19)
+
+[node name="Camera2D" type="Camera2D" parent="cat" unique_id=1927427599]
+position = Vector2(0, 1)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
