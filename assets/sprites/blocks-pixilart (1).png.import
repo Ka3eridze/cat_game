@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c10ht1pmom2ue"
-path="res://.godot/imported/breadnbrocoli.png-337130699ce9706209cb00ac20ceb294.ctex"
+uid="uid://dt75o30c2rrvm"
+path="res://.godot/imported/blocks-pixilart (1).png-bbaa3cd131421dc7d49f295e9e25849d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/breadnbrocoli.png"
-dest_files=["res://.godot/imported/breadnbrocoli.png-337130699ce9706209cb00ac20ceb294.ctex"]
+source_file="res://assets/sprites/blocks-pixilart (1).png"
+dest_files=["res://.godot/imported/blocks-pixilart (1).png-bbaa3cd131421dc7d49f295e9e25849d.ctex"]
 
 [params]
 

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7tfjkx7mon6d"]
+
+[ext_resource type="Texture2D" uid="uid://dt75o30c2rrvm" path="res://assets/sprites/blocks-pixilart (1).png" id="1_mi635"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
+size = Vector2(16, 8)
+
+[node name="platform" type="AnimatableBody2D" unique_id=171565800]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1595940724]
+texture = ExtResource("1_mi635")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=44730179]
+shape = SubResource("RectangleShape2D_s8bxr")
+one_way_collision = true

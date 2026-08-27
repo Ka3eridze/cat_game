@@ -1,34 +1,127 @@
 [gd_scene format=4 uid="uid://du76tcmf76xp"]
 
-[ext_resource type="Texture2D" uid="uid://c10ht1pmom2ue" path="res://assets/sprites/breadnbrocoli.png" id="1_4dvvg"]
 [ext_resource type="PackedScene" uid="uid://cvxvjkoga6gwb" path="res://scenes/character_body_2d.tscn" id="1_6e84v"]
+[ext_resource type="Texture2D" uid="uid://dt75o30c2rrvm" path="res://assets/sprites/blocks-pixilart (1).png" id="2_rnjyy"]
+[ext_resource type="PackedScene" uid="uid://c7tfjkx7mon6d" path="res://platform.tscn" id="3_4vge2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rnjyy"]
-texture = ExtResource("1_4dvvg")
-margins = Vector2i(4, 3)
-texture_region_size = Vector2i(15, 16)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04qyp"]
+texture = ExtResource("2_rnjyy")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/next_alternative_id = 2
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_4vge2"]
+[sub_resource type="TileSet" id="TileSet_j7wrs"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_rnjyy")
+sources/1 = SubResource("TileSetAtlasSource_04qyp")
+
+[sub_resource type="Animation" id="Animation_rnjyy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_4vge2"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(168, -11), Vector2(248, -11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_04qyp"]
+_data = {
+&"RESET": SubResource("Animation_rnjyy"),
+&"new_animation": SubResource("Animation_4vge2")
+}
+
+[sub_resource type="Animation" id="Animation_04qyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(249, -60)]
+}
+
+[sub_resource type="Animation" id="Animation_j7wrs"]
+resource_name = "new_animation"
+length = 1.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(249, -60), Vector2(168, -60)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fws66"]
+_data = {
+&"RESET": SubResource("Animation_04qyp"),
+&"new_animation": SubResource("Animation_j7wrs")
+}
 
 [node name="game" type="Node2D" unique_id=560246864]
 
-[node name="TileMap" type="TileMap" parent="." unique_id=892044326]
-tile_set = SubResource("TileSet_4vge2")
-format = 2
-
-[node name="Layer0" type="TileMapLayer" parent="TileMap" unique_id=113703564]
-use_parent_material = true
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAACAP7/AAAAAAAAAAADAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAGAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAJAP//AAAAAAAAAAAKAAAAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_4vge2")
-
 [node name="cat" parent="." unique_id=1452909302 instance=ExtResource("1_6e84v")]
+z_index = 5
 position = Vector2(1, -19)
 
 [node name="Camera2D" type="Camera2D" parent="cat" unique_id=1927427599]
 position = Vector2(0, 1)
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1937404840]
+tile_map_data = PackedByteArray("AAD//wAAAQAAAAAAAAAAAAAAAQAAAAAAAAABAP//AQAAAAAAAAACAP//AQAAAAAAAAAEAP3/AQAAAAAAAAAGAP7/AQAAAAAAAAAIAP//AQAAAAAAAAAJAP//AQAAAAAAAAD//wEAAQABAAAAAAAAAAEAAQABAAAAAAABAAEAAQABAAAAAAACAAEAAQABAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAAEAP7/AQABAAAAAAAGAP//AQABAAAAAAAIAAAAAQABAAAAAAAJAAAAAQABAAAAAAAIAAEAAQABAAAAAAAJAAEAAQABAAAAAAD9//z/AQAAAAAAAAD8//z/AQAAAAAAAAD7//z/AQAAAAAAAAAQAP//AQAAAAAAAAARAP//AQAAAAAAAAASAP//AQAAAAAAAAAQAAAAAQABAAAAAAAQAAEAAQABAAAAAAARAAEAAQABAAAAAAASAAEAAQABAAAAAAASAAAAAQABAAAAAAARAAAAAQABAAAAAAAQAPz/AQAAAAAAAAARAPz/AQAAAAAAAAASAPz/AQAAAAAAAAA=")
+tile_set = SubResource("TileSet_j7wrs")
+
+[node name="platform" parent="." unique_id=171565800 instance=ExtResource("3_4vge2")]
+position = Vector2(-8, -36)
+
+[node name="platform2" parent="." unique_id=1880826204 instance=ExtResource("3_4vge2")]
+position = Vector2(168, -11)
+
+[node name="move" type="AnimationPlayer" parent="platform2" unique_id=2034085807]
+libraries/ = SubResource("AnimationLibrary_04qyp")
+autoplay = &"new_animation"
+
+[node name="platform3" parent="." unique_id=1770948850 instance=ExtResource("3_4vge2")]
+position = Vector2(249, -60)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform3" unique_id=271364799]
+libraries/ = SubResource("AnimationLibrary_fws66")
+autoplay = &"new_animation"
